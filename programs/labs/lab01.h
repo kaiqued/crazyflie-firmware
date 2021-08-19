@@ -14,6 +14,14 @@ PwmOut Mot2(MOTOR2);
 PwmOut Mot3(MOTOR3);
 PwmOut Mot4(MOTOR4);
 
+void Play(float PERIODO, float TEMPO)
+{
+    Mot1.period(1/PERIODO);
+    Mot1 = 0.2;
+    wait(TEMPO);
+    Mot1 = 0;
+}
+
 // Main program
 int main()
 {
@@ -27,12 +35,10 @@ int main()
     led_4 = 0;
     
     // Test all motors with different frequencies (to make different noises)
-    Mot1.period(1.0/400.0);
-    Mot1 = 0.2;
-    wait(0.2);
-    Mot1 = 0;
+    Play(1/400, 0.2);
+    Play(1/500, 0.2);
 
-    Mot2.period(1.0/600.0);
+    Mot2.period(1.0/600);
     Mot2 = 0.2;
     wait(0.2);
     Mot2 = 0;
@@ -84,3 +90,4 @@ int main()
 
     }
 }
+
