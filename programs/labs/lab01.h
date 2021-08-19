@@ -1,6 +1,5 @@
 #include "mbed.h"
 #include "crazyflie.h"
-#include "USBSerial.h"
 
 // Define all LEDs as digital output objects
 DigitalOut led_1(LED_GREEN_L,!false);
@@ -22,37 +21,63 @@ int main()
     led_5 = 1;
     wait(5);
     led_5 = 0;
+    
     // Turn on red LEDs indicating motors are armed
-    led_3 = 1;
-    led_4 = 1;
+    led_3 = 0;
+    led_4 = 0;
+    
     // Test all motors with different frequencies (to make different noises)
+    Mot1.period(1.0/400.0);
     Mot1 = 0.2;
-    Mot1.period(1/400);
-    wait(1);
+    wait(0.2);
     Mot1 = 0;
 
+    Mot2.period(1.0/600.0);
     Mot2 = 0.2;
-    Mot2.period(1/600);
-    wait(1);
+    wait(0.2);
     Mot2 = 0;
 
+    Mot3.period(1.0/800.0);
     Mot3 = 0.2;
-    Mot3.period(1/800);
-    wait(1);
+    wait(0.2);
     Mot3 = 0;
 
+    Mot4.period(1.0/1000.0);
     Mot4 = 0.2;
-    Mot4.period(1/1000);
-    wait(1);
+    wait(0.2);
+    Mot4 = 0;
+
+    Mot1.period(1.0/1000.0);
+    Mot1 = 0.2;
+    wait(0.2);
+    Mot1 = 0;
+
+    Mot2.period(1.0/800.0);
+    Mot2 = 0.2;
+    wait(0.2);
+    Mot2 = 0;
+
+    Mot3.period(1.0/600.0);
+    Mot3 = 0.2;
+    wait(0.2);
+    Mot3 = 0;
+
+    Mot4.period(1.0/400.0);
+    Mot4 = 0.2;
+    wait(0.2);
     Mot4 = 0;
     
     // Turn off red LEDs indicating motors are disarmed
     led_3 = 1;
     led_4 = 1;
+    
     // Blink green LEDs indicating end of program
-    led_5 = 1;
-    wait(5);
-    led_5 = 0;
+    led_1 = 0;
+    led_2 = 0;
+    wait(0.2);
+    led_1 = 1;
+    led_2 = 1;
+
     while(true)
     {   
         

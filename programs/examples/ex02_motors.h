@@ -2,7 +2,7 @@
 #include "crazyflie.h"
 
 // Define motor 1 as PWM output object
-PwmOut motor(MOTOR1);
+PwmOut motor(MOTOR2);
 
 // Main program
 int main()
