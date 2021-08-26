@@ -1,5 +1,5 @@
 // Example programs
-#include "programs/examples/ex01_leds.h"
+// #include "programs/examples/ex01_leds.h"
 // #include "programs/examples/ex02_motors.h"
 // #include "programs/examples/ex03_serial.h"
 // #include "programs/examples/ex04_imu.h"
@@ -8,3 +8,4 @@
 
 // Lab programs
 // #include "programs/labs/lab01.h"  
+#include "programs/labs/lab02.h" 
