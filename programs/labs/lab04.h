@@ -37,15 +37,23 @@ int main()
 {
     INIT_DRONE();
 
-    float PWMCalculado = Rad2PWM(2200);
-    Mot1 = PWMCalculado;
-    Mot2 = PWMCalculado;
-    Mot3 = PWMCalculado;
-    Mot4 = PWMCalculado;
+    float PWM1000 = Rad2PWM(1000);
+    float PWM2000 = Rad2PWM(2000);
+    Mot1 = PWM1000;
+    Mot2 = PWM2000;
+    Mot3 = PWM1000;
+    Mot4 = PWM2000;
 
+    wait(5);
     // Turn off red LEDs indicating motors are armed
     Led_R_L = 1;
     Led_R_R = 1;
+
+    // Turn off the motors
+    Mot1 = 0;
+    Mot2 = 0;
+    Mot3 = 0;
+    Mot4 = 0;
     while(true)
     {
     }

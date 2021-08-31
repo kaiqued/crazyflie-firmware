@@ -15,7 +15,8 @@ const float I_zz = 29.0e-6; // kg.m^2
 const float l = 33.0e-3;    // m
 
 // Motor Parameters
-const float Motor_a1 = 5.133e-6;  //
-const float Motor_a2 = 5.633e-10; //
-const float Motor_kl = 1.719e-8;  //
+const float Motor_a1 = 2.026e-09; //
+const float Motor_a2 = 1.344e-07; //
+const float Motor_kl = 1.791e-8;  //    
+const float Motor_kd = 1.436e-10; //
 #endif

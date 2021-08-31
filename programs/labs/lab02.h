@@ -18,7 +18,7 @@ int main()
     Mot1.period(1.0/500.0);
     
     wait(1);
-    Mot1 = 0.6;
+    Mot1 = control_motor(1000);
     wait(4);
     Mot1 = 0.0;
 
