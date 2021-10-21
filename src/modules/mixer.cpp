@@ -1,12 +1,8 @@
 #include "mixer.h"
+#include "Music.h"
 
 Mixer::Mixer() : Mot_1(MOTOR1), Mot_2(MOTOR2), Mot_3(MOTOR3), Mot_4(MOTOR4), Led_R_L(LED_RED_L,!false), Led_R_R(LED_RED_R,!false), Led_G_R(LED_GREEN_R,!false), Led_G_L(LED_GREEN_L,!false)
 {
-    // Set PWM frequency to 500Hz
-    Mot_1.period(1.0/500.0);
-    Mot_2.period(1.0/500.0);
-    Mot_3.period(1.0/500.0);
-    Mot_4.period(1.0/500.0);
 
     // Turn off the motors
     Mot_1 = 0;
@@ -22,6 +18,29 @@ Mixer::Mixer() : Mot_1(MOTOR1), Mot_2(MOTOR2), Mot_3(MOTOR3), Mot_4(MOTOR4), Led
     Led_R_R = 1;
     Led_G_L = 1;
     Led_G_R = 1;
+    
+    // NOTE_GS5, 4, NOTE_DS5, 4 , NOTE_GS4, 4, NOTE_AS4,8,
+    for(int i = 0; i<62 ; i++){
+        Play(melody[i], int(1000/tempos[i]));
+    }
+
+    // Turn off the motors
+    Mot_1 = 0;
+    Mot_2 = 0;
+    Mot_3 = 0;
+    Mot_4 = 0;
+
+    // Set PWM frequency to 500Hz
+    Mot_1.period(1.0/500.0);
+    Mot_2.period(1.0/500.0);
+    Mot_3.period(1.0/500.0);
+    Mot_4.period(1.0/500.0);
+
+    // Turn off the motors
+    Mot_1 = 0;
+    Mot_2 = 0;
+    Mot_3 = 0;
+    Mot_4 = 0;
 }
 
 void Mixer::atuar(float F_T, float TAU_PHI, float TAU_THETA, float TAU_PSI)
@@ -101,4 +120,49 @@ void Mixer::desarm()
     wait(4);
     Led_G_L = 1; // Desliga
     Led_G_R = 1; // Desliga
+}
+
+void Mixer::Play(float PERIODO, float TEMPO)
+{   
+    if(Toca_Agora == 0){Toca_Agora = 1;}
+    if(PERIODO == 0)
+    {
+        Toca_Agora = 0;
+        wait_ms(TEMPO);
+    }
+    if (Toca_Agora == 1)
+    {
+        Mot_1.period(1.0/PERIODO);
+        Mot_1 = 0.1;
+        wait_ms(TEMPO);
+        Toca_Agora = 2;
+        Mot_1 = 0;
+    }
+
+    else if (Toca_Agora == 2) 
+    {
+        Mot_2.period(1.0/PERIODO);
+        Mot_2 = 0.1;
+        wait_ms(TEMPO);
+        Toca_Agora = 3;
+        Mot_2 = 0;
+    }
+
+    else if (Toca_Agora == 3) 
+    {
+        Mot_3.period(1.0/PERIODO);
+        Mot_3 = 0.1;
+        wait_ms(TEMPO);
+        Toca_Agora = 4;
+        Mot_3 = 0;
+    }
+    
+    else if (Toca_Agora == 4) 
+    {
+        Mot_4.period(1.0/PERIODO);
+        Mot_4 = 0.1;
+        wait_ms(TEMPO);
+        Toca_Agora = 1;
+        Mot_4 = 0;
+    }
 }

@@ -19,4 +19,9 @@ const float Motor_a1 = 2.026e-09; //
 const float Motor_a2 = 1.344e-07; //
 const float Motor_kl = 1.791e-8;  //    
 const float Motor_kd = 1.436e-10; //
+
+const float EstAti_dt = 2e-3;
+const float EstAti_wc = 3;        // rad/s
+const float EstAti_alpha = (EstAti_wc * EstAti_dt)/(1 + (EstAti_wc * EstAti_dt));
+
 #endif

@@ -2,8 +2,7 @@
 #define mixer_h
 
 #include "mbed.h"
-#include "/utils/pin_names.h"
-#include "/utils/parameters.h"
+#include "crazyflie.h"
 
 class Mixer
 {
@@ -28,7 +27,10 @@ class Mixer
         void mixer ( float F_T , float TAU_PHI , float TAU_THETA , float TAU_PSI );
         // Converte Velocidade angular (rad/s) para sinal PWM (%)
         float Rad2PWM( float OMEGA_R );
+        // Toca musica de inicialização
+        void Play( float PERIODO, float TEMPO );
         
+        int Toca_Agora = 1;
 
 };
 #endif 
