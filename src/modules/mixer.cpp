@@ -20,9 +20,9 @@ Mixer::Mixer() : Mot_1(MOTOR1), Mot_2(MOTOR2), Mot_3(MOTOR3), Mot_4(MOTOR4), Led
     Led_G_R = 1;
     
     // NOTE_GS5, 4, NOTE_DS5, 4 , NOTE_GS4, 4, NOTE_AS4,8,
-    for(int i = 0; i<31 ; i++){
-        Play(melody[i], int(750/tempos[i]));
-    }
+    // for(int i = 0; i<31 ; i++){
+    //     Play(melody[i], int(1000/tempos[i]));
+    // }
 
     // Turn off the motors
     Mot_1 = 0;

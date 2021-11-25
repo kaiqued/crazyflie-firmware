@@ -22,7 +22,7 @@ class Mixer
         // Define velocidades angulares (rad/s)
         float omega_r_1, omega_r_2, omega_r_3, omega_r_4;
         // Define o estado dos motores
-        bool armed;
+        bool armed;    
         // Converte força total de sustentação (N) e torques (N.m) para velocidades angulares (rad/s)
         void mixer ( float F_T , float TAU_PHI , float TAU_THETA , float TAU_PSI );
         // Converte Velocidade angular (rad/s) para sinal PWM (%)

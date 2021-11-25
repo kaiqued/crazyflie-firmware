@@ -46,5 +46,9 @@ void EstimadorAtitude::estimate()
     float theta_g = theta + q * EstAti_dt;
     float theta_a = atan2(imu.ax, -imu.az);
     theta = theta_g * (1-EstAti_alpha) +  theta_a * EstAti_alpha;
+
+    float psi_g = psi + r * EstAti_dt;
+    psi = psi_g;
+    
 }
     

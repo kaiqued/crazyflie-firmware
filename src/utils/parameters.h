@@ -20,8 +20,45 @@ const float Motor_a2 = 1.344e-07; //
 const float Motor_kl = 1.791e-8;  //    
 const float Motor_kd = 1.436e-10; //
 
+// Estimador de Atitude
 const float EstAti_dt = 2e-3;
 const float EstAti_wc = 3;        // rad/s
 const float EstAti_alpha = (EstAti_wc * EstAti_dt)/(1 + (EstAti_wc * EstAti_dt));
+
+// Controlador de Atitude
+const float Ts = 0.4;
+const float OS = 0.005;
+const float Zet = abs(log(OS)) / sqrt( pow(log(OS),2) + pow(pi,2));
+const float Wn = 4.0/(Zet*Ts);
+const float Ati_kp = Wn / ( 2.0*Zet );
+const float Ati_kd = 2.0 * Zet * Wn;
+
+// Controlador de Atitude psi
+const float psi_Ts = 0.4;
+const float psi_OS = 0.005;
+const float psi_Zet = abs(log(OS)) / sqrt( pow(log(OS),2) + pow(pi,2));
+const float psi_Wn = 4.0/(Zet*Ts);
+const float psi_kp = Wn / ( 2.0*Zet );
+const float psi_kd = 2.0 * Zet * Wn;
+
+// Estimador Vertical
+const float Est_Ver_dt = 1.0/20.0;
+const float Est_Ver_wc = 10.0;
+const float Est_Ver_ze = sqrt(2.0)/2.0;
+
+const float Est_Ver_l1 = pow(Est_Ver_wc, 2);
+const float Est_Ver_l2 = 2 * Est_Ver_ze * Est_Ver_wc;
+
+// Vertical controller gains
+const float Ts_z = 2.0;                
+const float OS_z = 0.010;              
+const float zeta_z = abs(log(OS_z))/sqrt(pow(log(OS_z),2)+pow(pi,2));
+const float omega_n_z = 4.0/(Ts_z*zeta_z);
+const float kp_z = pow(omega_n_z,2.0);       
+const float kd_z = 2.0*zeta_z*omega_n_z; 
+
+
+// Estimador Vertical
+const float Sigma = (2.0*tan((42.0*pi/180)/2))/(420*EstAti_dt);
 
 #endif

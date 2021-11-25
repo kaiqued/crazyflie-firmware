@@ -99,6 +99,10 @@ int melody[] =
     NOTE_C4, NOTE_D4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4,
     NOTE_C4, NOTE_D4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_E4, 
     REST
+    // NOTE_C4, NOTE_D4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4,
+    // NOTE_C4, NOTE_D4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4,
+    // NOTE_C4, NOTE_D4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_E4, 
+    // REST
 };
 int tempos[] = 
 {
@@ -106,5 +110,9 @@ int tempos[] =
     4, 4, 4, 4, 4, 8, 4, 8, 4,
     4, 4, 4, 4, 4, 8, 4, 8, 4, 4, 4, 2,
     2
+    // 2, 2, 4, 4, 4, 8, 4, 8, 4, 
+    // 4, 4, 4, 4, 4, 8, 4, 8, 4,
+    // 4, 4, 4, 4, 4, 8, 4, 8, 4, 4, 4, 2,
+    // 2
 };
 #endif
