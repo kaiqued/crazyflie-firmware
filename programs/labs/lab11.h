@@ -42,7 +42,7 @@ int main()
             {
                 flag_range = false;
                 ver_est.correct(  att_est.phi, att_est.theta );
-                pc.printf ("x[m]: %6.2f | y[m]: %6.2f | u[m/s]: %6.2f | v[m/s]: %6.2f \n", hor_est .x, hor_est .y, hor_est .u, hor_est .v);
+                pc.printf ("x[m]: %6.2f | y[m]: %6.2f | u[m/s]: %6.2f | v[m/s]: %6.2f \n", hor_est.x, hor_est.y, hor_est.u, hor_est.v);
             }
             hor_est.predict(0.0, 0.0);
             if (ver_est.z >= 0.05)
